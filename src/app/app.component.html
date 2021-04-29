@@ -1,0 +1,24 @@
+<div [formGroup]="form">
+  <div>
+    <input type="text" formControlName="name">
+  </div>
+
+
+  <div *ngFor="let item of form.get('items').controls;let i = index" [formGroup]="item">
+
+    <div>
+      Check {{item.get('id').value}} <input type="checkbox" formControlName="checked">
+    </div>
+
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+result <br>
+
+<pre>
+{{form.value | json}}
+</pre>
